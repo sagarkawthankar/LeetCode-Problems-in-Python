@@ -1,0 +1,23 @@
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        output = ""
+        counter = {}
+        for x in s:
+            if x not in counter:
+                counter[x]=1
+            else:
+                counter[x] = counter[x]+1
+        a = set()
+        for x in counter:
+            if counter[x] not in a:
+                a.add(counter[x])
+        a = sorted(a,reverse=True)
+        for x in a:
+            for y in counter:
+                if counter[y]==x:
+                    output = output+y*x
+        return(output)
