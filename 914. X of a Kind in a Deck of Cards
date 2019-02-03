@@ -1,0 +1,46 @@
+class Solution(object):
+    def hasGroupsSizeX(self, deck):
+        """
+        :type deck: List[int]
+        :rtype: bool
+        """
+        dict = {}
+        globalv = 0
+        for x in deck:
+            if x in dict:
+                dict[x] = dict[x] + 1
+            else:
+                dict[x] = 1
+        for x in dict:
+            if int(dict[x]%2)==0:
+                counter = 1
+            else:
+                counter = 0
+                break
+        if counter==1:
+            return(True)
+        for x in dict:
+            if int(dict[x]%3)==0:
+                counter = 1
+            else:
+                counter = 0
+                break
+        if counter==1:
+            return(True)
+        for x in dict:
+            if int(dict[x]%5)==0:
+                counter = 1
+            else:
+                counter = 0
+                break
+        if counter==1:
+            return(True)
+        for x in dict:
+            if int(dict[x]%7)==0:
+                counter = 1
+            else:
+                counter = 0
+                break
+        if counter==1:
+            return(True)
+        return(False)
