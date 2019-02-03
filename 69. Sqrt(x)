@@ -1,0 +1,8 @@
+import java.lang.*;
+class Solution {
+    public int mySqrt(int x) {
+        double y = (double)x; 
+        y = Math.sqrt(y);
+         return((int)y);
+    }
+}
