@@ -1,0 +1,62 @@
+class Solution(object):
+    def isNumber(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if "e" in s:
+            notproper = set(['e','+','-','.'])
+            if len(s)==s.count(" "):
+                return(False)
+            if s=="":
+                return(False)
+            if s=="e" or s=="." or s=="+" or s=="-":
+                return(False)
+            count = 0
+            for x in s:
+                if x in notproper:
+                    count+=1
+            if count==len(s):
+                return(False)
+            if len(s)>1 and s[0]=="e":
+                return(False)
+            for i in range(len(s)):
+                if s[i]=="e":
+                    break
+            a = s[:i]
+            if a[-1]==" ":
+                return(False)
+            b = s[i+1:]
+            counti = 0
+            try:
+                a = int(a)
+            except ValueError:
+                counti+=1
+            try:
+                a = float(a)
+            except ValueError:
+                counti+=1
+            try:
+                b = int(b)
+            except ValueError:
+                return(False)
+            if counti==2:
+                return(False)
+            else:
+                return(True)
+        elif "." in s:
+            try:
+                s = float(s)
+            except ValueError:
+                return(False)
+            return(True)            
+        else:
+            if s[0]!=" " and s[-1]!=" " and " " in s:
+                return(False)
+            try:
+                s = int(s)
+                print(s)
+            except ValueError:
+                return(False)
+            return(True)
+        
