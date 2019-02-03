@@ -1,0 +1,15 @@
+class Solution(object):
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        num = str(num)
+        if len(num)==1:
+            return(int(num))
+        while len(num)!=1:
+            temp = 0
+            for x in num:
+                temp+=int(x)
+            num = str(temp)
+        return(int(num))
