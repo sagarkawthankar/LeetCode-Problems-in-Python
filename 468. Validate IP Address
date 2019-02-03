@@ -1,0 +1,50 @@
+class Solution(object):
+    def validIPAddress(self, IP):
+        """
+        :type IP: str
+        :rtype: str
+        """
+        if "." in IP:
+            numbers = set(['1','2','3','4','5','6','7','8','9','0'])
+            temp = IP.split(".")
+            if len(temp)!=4:
+                return("Neither")
+            for x in temp:
+                if x=="" or len(x)==0:
+                    return("Neither")
+                if len(x)>1:
+                    if x.count("0")==len(x):
+                        return("Neither")
+                    if x[0]=="0" and x[1]!="0":
+                        return("Neither")
+                for y in x:
+                    if y not in numbers:
+                        return("Neither")
+                try:
+                    x = int(x)
+                except ValueError:
+                    return("Neither")
+                if x>255 or x<0:
+                    return("Neither")
+            return("IPv4")
+        else:
+            temp = IP.split(":")
+            if len(temp)!=8:
+                return("Neither")
+            numbers = set(['1','2','3','4','5','6','7','8','9','0'])
+            letters = set(['A','a','B','b','C','c','D','d','E','e','F','f'])
+            for x in temp:
+                print(len(x))
+                if x=="" or len(x)==0:
+                    return("Neither")
+                if len(x)>4:
+                    return("Neither")
+                if x[0]=="0" and len(x)>1:
+                    continue
+                for y in x:
+                    if y not in numbers and y not in letters:
+                        return("Neither")
+            return("IPv6")
+        
+            
+                
