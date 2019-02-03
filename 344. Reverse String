@@ -1,0 +1,14 @@
+class Solution:
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if s.count(" ")==len(s):
+            return(s)
+        start = 0
+        end = 0
+        reverse = ""
+        for i in reversed(range(len(s))):
+            reverse = reverse+s[i]
+        return(reverse)
