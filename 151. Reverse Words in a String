@@ -1,0 +1,36 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if s=="":
+            return(s)
+        start = 0
+        end = 0
+        for i in range(len(s)):
+            if s[i]==" ":
+                continue
+            else:
+                start = i
+                break
+        for i in reversed(range(len(s))):
+            if s[i]==" ":
+                continue
+            else:
+                end = i
+                break
+        words = []
+        temp = ""
+        for i in range(start,end+1):
+            if s[i]!=" ":
+                temp = temp+s[i]
+            else:
+                words.append(temp)
+                temp = ""
+        words.append(temp)
+        final = ""
+        for i in reversed(range(len(words))):
+            if words[i]!="":
+                final = final+words[i]+" "
+        return(final[:-1])
