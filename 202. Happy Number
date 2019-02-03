@@ -1,0 +1,18 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        add = str(n)
+        for i in range(0,100):
+            a = []
+            for y in add:
+                a.append(int(y)*int(y))
+            add = sum(a)
+            if add==1:
+                return(True)
+            else:
+                add = str(add)
+        return(False)
+
